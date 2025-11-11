@@ -87,10 +87,19 @@ main {
   justify-content: center;
   color: white;
   transition: transform 0.3s ease;
+  flex-shrink: 0;
 }
 
 .logo-icon:hover {
   transform: scale(1.05);
+}
+
+@media (max-width: 640px) {
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
 }
 
 .logo-text {
