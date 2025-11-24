@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 📰 NewsNow - Portal de Notícias Moderno
 
 Um portal de notícias elegante, responsivo e com modo claro/escuro, construído com React e FastAPI.
@@ -121,3 +122,7 @@ Desenvolvido com ❤️ usando Emergent AI
 ---
 
 **Precisa de ajuda?** Consulte os arquivos de documentação ou abra uma issue.
+=======
+# site.next
+Meu site teste de notícia criação do projeto 
+>>>>>>> 389a55f3d548f18b20210f85898f6eac4081329b
