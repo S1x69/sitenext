@@ -103,6 +103,14 @@ export default function NewsDetailPage({ params }) {
     articleSection: news.category,
   };
 
+  // Extrair seções do conteúdo para Table of Contents
+  const paragraphs = news.content.split('\n\n');
+  const sections = [
+    { id: 'intro', title: 'Introdução' },
+    { id: 'desenvolvimento', title: 'Desenvolvimento' },
+    { id: 'conclusao', title: 'Conclusão' }
+  ];
+
   return (
     <>
       <script
@@ -110,17 +118,64 @@ export default function NewsDetailPage({ params }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <article className="min-h-screen">
-        <div className="container mx-auto px-4 py-8">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Voltar
-          </Link>
+      <ReadingProgress />
+      <FloatingShareBar title={news.title} />
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <article className="min-h-screen relative">
+        {/* Hero Section com Parallax */}
+        <div className="relative h-[70vh] overflow-hidden">
+          <div className="absolute inset-0">
+            <Image
+              src={news.image}
+              alt={news.title}
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+          </div>
+          
+          <div className="relative h-full container mx-auto px-4 flex flex-col justify-end pb-12">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-lg bg-white/10 backdrop-blur-md hover:bg-white/20 transition-colors text-white w-fit"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Voltar
+            </Link>
+
+            <div className="max-w-4xl space-y-4">
+              <div className="flex items-center gap-3">
+                <span className="px-4 py-2 rounded-full bg-blue-600 text-white text-sm font-semibold">
+                  {news.category}
+                </span>
+                <ReadingTimeEstimate content={news.content} />
+              </div>
+
+              <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight animate-fade-in">
+                {news.title}
+              </h1>
+              
+              <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
+                {news.subtitle}
+              </p>
+
+              <div className="flex items-center gap-6 text-white/90 text-sm">
+                <span className="flex items-center gap-2">
+                  <User className="w-4 h-4" />
+                  {news.author}
+                </span>
+                <span className="flex items-center gap-2">
+                  <Clock className="w-4 h-4" />
+                  {formatDateLong(news.date)}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 py-8">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Main Content */}
             <div className="lg:col-span-2">
               <div className="bg-card rounded-2xl p-6 md:p-10 shadow-sm border">
