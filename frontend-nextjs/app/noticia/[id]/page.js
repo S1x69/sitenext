@@ -263,23 +263,23 @@ export default function NewsDetailPage({ params }) {
                   </section>
 
                   {/* Key Takeaways */}
-                  <div className=\"my-12 p-8 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-2xl border-2 border-blue-200 dark:border-blue-800\">
-                    <div className=\"flex items-center gap-2 mb-4\">
-                      <TrendingUp className=\"w-6 h-6 text-blue-600\" />
-                      <h3 className=\"text-2xl font-bold\">Pontos-Chave</h3>
+                  <div className="my-12 p-8 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-2xl border-2 border-blue-200 dark:border-blue-800">
+                    <div className="flex items-center gap-2 mb-4">
+                      <TrendingUp className="w-6 h-6 text-blue-600" />
+                      <h3 className="text-2xl font-bold">Pontos-Chave</h3>
                     </div>
-                    <ul className=\"space-y-3\">
-                      <li className=\"flex items-start gap-3\">
-                        <span className=\"flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold\">1</span>
-                        <span className=\"text-foreground/90\">Inovação tecnológica está transformando o mercado</span>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-3">
+                        <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                        <span className="text-foreground/90">Inovação tecnológica está transformando o mercado</span>
                       </li>
-                      <li className=\"flex items-start gap-3\">
-                        <span className=\"flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold\">2</span>
-                        <span className=\"text-foreground/90\">Impacto esperado em diversos setores da economia</span>
+                      <li className="flex items-start gap-3">
+                        <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                        <span className="text-foreground/90">Impacto esperado em diversos setores da economia</span>
                       </li>
-                      <li className=\"flex items-start gap-3\">
-                        <span className=\"flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold\">3</span>
-                        <span className=\"text-foreground/90\">Necessidade de regulamentação e ética nas aplicações</span>
+                      <li className="flex items-start gap-3">
+                        <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                        <span className="text-foreground/90">Necessidade de regulamentação e ética nas aplicações</span>
                       </li>
                     </ul>
                   </div>
