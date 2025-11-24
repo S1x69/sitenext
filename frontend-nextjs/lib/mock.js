@@ -95,6 +95,18 @@ export const mockNews = [
     date: '2025-01-12T15:00:00Z',
     featured: false,
     tag: null
+  },
+  {
+    id: '9',
+    title: 'Cotações do Agronegócio: Milho registra alta de 2,3% no mercado',
+    subtitle: 'Aumento na demanda e clima favorável impulsionam preços das commodities agrícolas',
+    category: 'Cotações',
+    image: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d',
+    content: `O mercado de commodities agrícolas brasileiras apresentou movimentação positiva nesta semana, com destaque para o milho que registrou alta de 2,3%, fechando a saca de 60kg a R$ 67,50.\n\nEspecialistas apontam que o aumento se deve à maior demanda tanto do mercado interno quanto externo, aliado a condições climáticas favoráveis nas principais regiões produtoras. O setor de proteína animal tem mantido compras consistentes, sustentando os preços.\n\nO boi gordo também apresentou valorização de 1,8%, com a arroba cotada a R$ 312,50. A demanda por carne bovina segue aquecida, impulsionada pelo período de festas e maior poder de compra do consumidor.\n\nNo setor de proteínas, o frango registrou leve alta de 0,5%, com o quilo a R$ 8,45. Já o suíno apresentou pequena queda de 0,8%, cotado a R$ 9,20 por quilo.\n\nO café arábica foi destaque positivo com alta de 3,2%, alcançando R$ 1.284,00 a saca. Fatores climáticos e demanda internacional sustentam os preços em patamares elevados.\n\nAnalistas recomendam atenção às previsões climáticas para as próximas semanas, que podem influenciar significativamente as cotações de grãos e proteínas.`,
+    author: 'Roberto Campos',
+    date: '2025-01-15T14:30:00Z',
+    featured: true,
+    tag: 'Atualizado'
   }
 ];
 
