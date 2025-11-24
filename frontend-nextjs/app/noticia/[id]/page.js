@@ -139,12 +139,48 @@ export default function NewsDetailPage({ params }) {
 
             {/* Main Content */}
             <div className="lg:col-span-2 order-1 lg:order-2">
-              <div className="space-y-8">
+              <div className="bg-card rounded-2xl p-6 md:p-10 shadow-sm border">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="px-4 py-2 rounded-full bg-blue-600 text-white text-sm font-semibold">
+                    {news.category}
+                  </span>
+                  <ReadingTimeEstimate content={news.content} />
+                </div>
+
+                <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+                  {news.title}
+                </h1>
+                <p className="text-xl text-muted-foreground mb-6">
+                  {news.subtitle}
+                </p>
+
+                <div className="flex items-center gap-6 py-4 border-t border-b mb-6 text-sm text-muted-foreground">
+                  <span className="flex items-center gap-2">
+                    <User className="w-4 h-4" />
+                    {news.author}
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <Clock className="w-4 h-4" />
+                    {formatDateLong(news.date)}
+                  </span>
+                </div>
+
                 {/* Action Bar */}
-                <div className="flex flex-wrap items-center gap-3 p-6 bg-card rounded-2xl border shadow-sm">
+                <div className="flex flex-wrap items-center gap-3 mb-6">
                   <ReadAloudButton content={news.content} />
                   <ShareButton title={news.title} />
                   <FontControls />
+                </div>
+
+                {/* Featured Image */}
+                <div className="relative w-full h-[300px] md:h-[450px] rounded-xl overflow-hidden mb-8">
+                  <Image
+                    src={news.image}
+                    alt={news.title}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
                 </div>
 
                 {/* Content Sections */}

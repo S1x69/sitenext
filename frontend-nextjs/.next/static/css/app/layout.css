@@ -775,6 +775,9 @@ video {
 .h-px {
   height: 1px;
 }
+.h-\[300px\] {
+  height: 300px;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1894,6 +1897,9 @@ html {
 .hover\:bg-white\/30:hover {
   background-color: rgb(255 255 255 / 0.3);
 }
+.hover\:bg-secondary\/80:hover {
+  background-color: hsl(var(--secondary) / 0.8);
+}
 .hover\:text-foreground:hover {
   color: hsl(var(--foreground));
 }
@@ -2051,6 +2057,10 @@ html {
     display: block;
   }
 
+  .md\:h-\[450px\] {
+    height: 450px;
+  }
+
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2065,6 +2075,10 @@ html {
 
   .md\:p-12 {
     padding: 3rem;
+  }
+
+  .md\:p-10 {
+    padding: 2.5rem;
   }
 
   .md\:text-2xl {
