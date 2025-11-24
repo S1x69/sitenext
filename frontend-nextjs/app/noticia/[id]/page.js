@@ -284,12 +284,9 @@ export default function NewsDetailPage({ params }) {
                 <NewsletterCTA />
 
                 {/* Share CTA */}
-                <div className="mt-12 p-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl text-white text-center">
-                  <h3 className="text-2xl font-bold mb-3">Gostou desta notícia?</h3>
-                  <p className="mb-6 text-white/90">Compartilhe com seus amigos e ajude a espalhar informação de qualidade!</p>
-                  <div className="flex justify-center">
-                    <ShareButton title={news.title} />
-                  </div>
+                <div className="mt-10 pt-6 border-t text-center">
+                  <p className="text-sm font-medium mb-3">Gostou desta notícia? Compartilhe!</p>
+                  <ShareButton title={news.title} />
                 </div>
               </div>
             </div>
