@@ -139,7 +139,7 @@ export default function NewsDetailPage({ params }) {
 
             {/* Main Content */}
             <div className="lg:col-span-2 order-1 lg:order-2">
-              <div className="bg-card rounded-2xl p-6 md:p-10 shadow-sm border">
+              <div className="bg-card rounded-2xl p-4 sm:p-6 md:p-10 shadow-sm border">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="px-4 py-2 rounded-full bg-blue-600 text-white text-sm font-semibold">
                     {news.category}
