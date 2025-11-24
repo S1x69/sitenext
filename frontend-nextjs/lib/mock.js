@@ -117,3 +117,103 @@ export const searchPrefixes = [
   { id: 5, label: 'Curiosidades', icon: '💡' },
   { id: 6, label: 'Entretenimento', icon: '🎬' }
 ];
+
+// Dados de cotações
+export const cotacoes = [
+  {
+    id: 'milho',
+    nome: 'Milho',
+    unidade: 'saca 60kg',
+    preco: 67.50,
+    variacao: 2.3,
+    minimo: 65.20,
+    maximo: 68.90,
+    ultimaAtualizacao: '2025-01-15T14:30:00Z',
+    icon: '🌽',
+    cor: 'yellow'
+  },
+  {
+    id: 'soja',
+    nome: 'Soja',
+    unidade: 'saca 60kg',
+    preco: 142.80,
+    variacao: -1.5,
+    minimo: 140.50,
+    maximo: 145.20,
+    ultimaAtualizacao: '2025-01-15T14:30:00Z',
+    icon: '🫘',
+    cor: 'green'
+  },
+  {
+    id: 'boi-gordo',
+    nome: 'Boi Gordo',
+    unidade: 'arroba',
+    preco: 312.50,
+    variacao: 1.8,
+    minimo: 305.00,
+    maximo: 318.00,
+    ultimaAtualizacao: '2025-01-15T14:30:00Z',
+    icon: '🐄',
+    cor: 'red'
+  },
+  {
+    id: 'frango',
+    nome: 'Frango',
+    unidade: 'kg',
+    preco: 8.45,
+    variacao: 0.5,
+    minimo: 8.20,
+    maximo: 8.60,
+    ultimaAtualizacao: '2025-01-15T14:30:00Z',
+    icon: '🐔',
+    cor: 'orange'
+  },
+  {
+    id: 'suino',
+    nome: 'Suíno',
+    unidade: 'kg',
+    preco: 9.20,
+    variacao: -0.8,
+    minimo: 9.00,
+    maximo: 9.50,
+    ultimaAtualizacao: '2025-01-15T14:30:00Z',
+    icon: '🐷',
+    cor: 'pink'
+  },
+  {
+    id: 'cafe',
+    nome: 'Café Arábica',
+    unidade: 'saca 60kg',
+    preco: 1284.00,
+    variacao: 3.2,
+    minimo: 1240.00,
+    maximo: 1320.00,
+    ultimaAtualizacao: '2025-01-15T14:30:00Z',
+    icon: '☕',
+    cor: 'brown'
+  },
+  {
+    id: 'acucar',
+    nome: 'Açúcar',
+    unidade: 'saca 50kg',
+    preco: 112.30,
+    variacao: 1.1,
+    minimo: 110.00,
+    maximo: 115.00,
+    ultimaAtualizacao: '2025-01-15T14:30:00Z',
+    icon: '🍬',
+    cor: 'white'
+  },
+  {
+    id: 'trigo',
+    nome: 'Trigo',
+    unidade: 'saca 60kg',
+    preco: 78.90,
+    variacao: -2.1,
+    minimo: 76.50,
+    maximo: 82.00,
+    ultimaAtualizacao: '2025-01-15T14:30:00Z',
+    icon: '🌾',
+    cor: 'amber'
+  }
+];
