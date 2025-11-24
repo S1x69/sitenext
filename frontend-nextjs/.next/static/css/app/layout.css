@@ -2055,6 +2055,10 @@ html {
     gap: 2rem;
   }
 
+  .sm\:p-6 {
+    padding: 1.5rem;
+  }
+
   .sm\:px-4 {
     padding-left: 1rem;
     padding-right: 1rem;

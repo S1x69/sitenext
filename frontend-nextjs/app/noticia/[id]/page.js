@@ -147,10 +147,10 @@ export default function NewsDetailPage({ params }) {
                   <ReadingTimeEstimate content={news.content} />
                 </div>
 
-                <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 leading-tight">
                   {news.title}
                 </h1>
-                <p className="text-xl text-muted-foreground mb-6">
+                <p className="text-lg sm:text-xl text-muted-foreground mb-4 sm:mb-6">
                   {news.subtitle}
                 </p>
 
