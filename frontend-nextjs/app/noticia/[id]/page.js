@@ -176,58 +176,119 @@ export default function NewsDetailPage({ params }) {
 
         <div className="container mx-auto px-4 py-8">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            {/* Table of Contents - Fixed Sidebar */}
+            <div className="lg:col-span-1 order-2 lg:order-1">
+              <TableOfContents sections={sections} />
+            </div>
+
             {/* Main Content */}
-            <div className="lg:col-span-2">
-              <div className="bg-card rounded-2xl p-6 md:p-10 shadow-sm border">
-                <span className="inline-block px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-semibold mb-4">
-                  {news.category}
-                </span>
-
-                <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-                  {news.title}
-                </h1>
-                <p className="text-xl text-muted-foreground mb-6">
-                  {news.subtitle}
-                </p>
-
-                <div className="flex items-center gap-6 py-4 border-t border-b mb-6 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-2">
-                    <User className="w-4 h-4" />
-                    {news.author}
-                  </span>
-                  <span className="flex items-center gap-2">
-                    <Clock className="w-4 h-4" />
-                    {formatDateLong(news.date)}
-                  </span>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-3 mb-6">
+            <div className="lg:col-span-2 order-1 lg:order-2">
+              <div className="space-y-8">
+                {/* Action Bar */}
+                <div className="flex flex-wrap items-center gap-3 p-6 bg-card rounded-2xl border shadow-sm">
                   <ReadAloudButton content={news.content} />
                   <ShareButton title={news.title} />
                   <FontControls />
                 </div>
 
-                <div className="relative w-full h-[300px] md:h-[450px] rounded-xl overflow-hidden mb-8">
-                  <Image
-                    src={news.image}
-                    alt={news.title}
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                </div>
-
+                {/* Content Sections */}
                 <div className="prose prose-lg max-w-none dark:prose-invert">
-                  {news.content.split('\n\n').map((paragraph, index) => (
-                    <p key={index} className="mb-6 leading-relaxed">
-                      {paragraph}
+                  {/* Introdução */}
+                  <section id="intro" className="scroll-mt-24">
+                    <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
+                      <span className="w-2 h-8 bg-blue-600 rounded-full"></span>
+                      Introdução
+                    </h2>
+                    <p className="text-lg leading-relaxed text-foreground/90 mb-6 first-letter:text-6xl first-letter:font-bold first-letter:text-blue-600 first-letter:mr-2 first-letter:float-left">
+                      {paragraphs[0]}
                     </p>
-                  ))}
+                  </section>
+
+                  {/* Quote Interativa */}
+                  <InteractiveQuote
+                    text=\"Esta é uma das descobertas mais importantes da década e vai impactar milhões de pessoas.\"
+                    author={news.author}
+                  />
+
+                  {/* Desenvolvimento */}
+                  <section id=\"desenvolvimento\" className=\"scroll-mt-24\">
+                    <h2 className=\"text-3xl font-bold mb-6 flex items-center gap-3\">
+                      <span className=\"w-2 h-8 bg-purple-600 rounded-full\"></span>
+                      Desenvolvimento
+                    </h2>
+                    
+                    {paragraphs.slice(1, -1).map((paragraph, index) => (
+                      <div key={index} className=\"mb-8\">
+                        <p className=\"text-lg leading-relaxed text-foreground/90\">
+                          {paragraph}
+                        </p>
+                        
+                        {/* Stats Card a cada 2 parágrafos */}
+                        {index === 1 && (
+                          <div className=\"my-8 grid grid-cols-2 md:grid-cols-4 gap-4\">
+                            <div className=\"text-center p-6 bg-blue-50 dark:bg-blue-950 rounded-xl\">
+                              <div className=\"text-3xl font-bold text-blue-600\">85%</div>
+                              <div className=\"text-sm text-muted-foreground mt-1\">Crescimento</div>
+                            </div>
+                            <div className=\"text-center p-6 bg-purple-50 dark:bg-purple-950 rounded-xl\">
+                              <div className=\"text-3xl font-bold text-purple-600\">2.5M</div>
+                              <div className=\"text-sm text-muted-foreground mt-1\">Usuários</div>
+                            </div>
+                            <div className=\"text-center p-6 bg-green-50 dark:bg-green-950 rounded-xl\">
+                              <div className=\"text-3xl font-bold text-green-600\">150+</div>
+                              <div className=\"text-sm text-muted-foreground mt-1\">Países</div>
+                            </div>
+                            <div className=\"text-center p-6 bg-orange-50 dark:bg-orange-950 rounded-xl\">
+                              <div className=\"text-3xl font-bold text-orange-600\">98%</div>
+                              <div className=\"text-sm text-muted-foreground mt-1\">Satisfação</div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </section>
+
+                  {/* Conclusão */}
+                  <section id=\"conclusao\" className=\"scroll-mt-24\">
+                    <h2 className=\"text-3xl font-bold mb-6 flex items-center gap-3\">
+                      <span className=\"w-2 h-8 bg-green-600 rounded-full\"></span>
+                      Conclusão
+                    </h2>
+                    <p className=\"text-lg leading-relaxed text-foreground/90 mb-6\">
+                      {paragraphs[paragraphs.length - 1]}
+                    </p>
+                  </section>
+
+                  {/* Key Takeaways */}
+                  <div className=\"my-12 p-8 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-2xl border-2 border-blue-200 dark:border-blue-800\">
+                    <div className=\"flex items-center gap-2 mb-4\">
+                      <TrendingUp className=\"w-6 h-6 text-blue-600\" />
+                      <h3 className=\"text-2xl font-bold\">Pontos-Chave</h3>
+                    </div>
+                    <ul className=\"space-y-3\">
+                      <li className=\"flex items-start gap-3\">
+                        <span className=\"flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold\">1</span>
+                        <span className=\"text-foreground/90\">Inovação tecnológica está transformando o mercado</span>
+                      </li>
+                      <li className=\"flex items-start gap-3\">
+                        <span className=\"flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold\">2</span>
+                        <span className=\"text-foreground/90\">Impacto esperado em diversos setores da economia</span>
+                      </li>
+                      <li className=\"flex items-start gap-3\">
+                        <span className=\"flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold\">3</span>
+                        <span className=\"text-foreground/90\">Necessidade de regulamentação e ética nas aplicações</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
 
-                <div className="mt-10 pt-6 border-t text-center">
-                  <p className="text-sm font-medium mb-3">Gostou desta notícia? Compartilhe!</p>
-                  <ShareButton title={news.title} />
+                {/* Share CTA */}
+                <div className=\"mt-12 p-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl text-white text-center\">
+                  <h3 className=\"text-2xl font-bold mb-3\">Gostou desta notícia?</h3>
+                  <p className=\"mb-6 text-white/90\">Compartilhe com seus amigos e ajude a espalhar informação de qualidade!</p>
+                  <div className=\"flex justify-center\">
+                    <ShareButton title={news.title} />
+                  </div>
                 </div>
               </div>
             </div>
