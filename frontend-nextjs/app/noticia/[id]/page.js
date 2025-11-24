@@ -154,7 +154,7 @@ export default function NewsDetailPage({ params }) {
                   {news.subtitle}
                 </p>
 
-                <div className="flex items-center gap-6 py-4 border-t border-b mb-6 text-sm text-muted-foreground">
+                <div className="flex flex-wrap items-center gap-3 sm:gap-6 py-3 sm:py-4 border-t border-b mb-4 sm:mb-6 text-xs sm:text-sm text-muted-foreground">
                   <span className="flex items-center gap-2">
                     <User className="w-4 h-4" />
                     {news.author}
