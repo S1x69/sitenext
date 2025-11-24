@@ -11,7 +11,6 @@ import FontControls from '@/components/FontControls';
 import ReadingProgress from '@/components/ReadingProgress';
 import TableOfContents from '@/components/TableOfContents';
 import InteractiveQuote from '@/components/InteractiveQuote';
-import FloatingShareBar from '@/components/FloatingShareBar';
 import ReadingTimeEstimate from '@/components/ReadingTimeEstimate';
 import NewsletterCTA from '@/components/NewsletterCTA';
 import RelatedTopics from '@/components/RelatedTopics';
