@@ -285,6 +285,15 @@ export default function NewsDetailPage({ params }) {
                   </div>
                 </div>
 
+                {/* Author Bio */}
+                <AuthorBio author={news.author} category={news.category} />
+
+                {/* Related Topics */}
+                <RelatedTopics />
+
+                {/* Newsletter CTA */}
+                <NewsletterCTA />
+
                 {/* Share CTA */}
                 <div className=\"mt-12 p-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl text-white text-center\">
                   <h3 className=\"text-2xl font-bold mb-3\">Gostou desta notícia?</h3>
@@ -297,7 +306,7 @@ export default function NewsDetailPage({ params }) {
             </div>
 
             {/* Sidebar */}
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-1 order-3">
               <div className="sticky top-24 space-y-6">
                 {/* Author Card */}
                 <div className="bg-card rounded-xl p-6 shadow-sm border text-center">
