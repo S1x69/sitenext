@@ -100,6 +100,7 @@ export default function RootLayout({ children }) {
             <main className="flex-1">{children}</main>
             <Footer />
           </div>
+          <CookieConsent />
           <Toaster position="top-right" richColors />
         </ThemeProvider>
       </body>
