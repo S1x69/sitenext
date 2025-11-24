@@ -221,29 +221,29 @@ export default function NewsDetailPage({ params }) {
                     </h2>
                     
                     {paragraphs.slice(1, -1).map((paragraph, index) => (
-                      <div key={index} className=\"mb-8\">
-                        <p className=\"text-lg leading-relaxed text-foreground/90\">
+                      <div key={index} className="mb-8">
+                        <p className="text-lg leading-relaxed text-foreground/90">
                           {paragraph}
                         </p>
                         
                         {/* Stats Card a cada 2 parágrafos */}
                         {index === 1 && (
-                          <div className=\"my-8 grid grid-cols-2 md:grid-cols-4 gap-4\">
-                            <div className=\"text-center p-6 bg-blue-50 dark:bg-blue-950 rounded-xl\">
-                              <div className=\"text-3xl font-bold text-blue-600\">85%</div>
-                              <div className=\"text-sm text-muted-foreground mt-1\">Crescimento</div>
+                          <div className="my-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div className="text-center p-6 bg-blue-50 dark:bg-blue-950 rounded-xl">
+                              <div className="text-3xl font-bold text-blue-600">85%</div>
+                              <div className="text-sm text-muted-foreground mt-1">Crescimento</div>
                             </div>
-                            <div className=\"text-center p-6 bg-purple-50 dark:bg-purple-950 rounded-xl\">
-                              <div className=\"text-3xl font-bold text-purple-600\">2.5M</div>
-                              <div className=\"text-sm text-muted-foreground mt-1\">Usuários</div>
+                            <div className="text-center p-6 bg-purple-50 dark:bg-purple-950 rounded-xl">
+                              <div className="text-3xl font-bold text-purple-600">2.5M</div>
+                              <div className="text-sm text-muted-foreground mt-1">Usuários</div>
                             </div>
-                            <div className=\"text-center p-6 bg-green-50 dark:bg-green-950 rounded-xl\">
-                              <div className=\"text-3xl font-bold text-green-600\">150+</div>
-                              <div className=\"text-sm text-muted-foreground mt-1\">Países</div>
+                            <div className="text-center p-6 bg-green-50 dark:bg-green-950 rounded-xl">
+                              <div className="text-3xl font-bold text-green-600">150+</div>
+                              <div className="text-sm text-muted-foreground mt-1">Países</div>
                             </div>
-                            <div className=\"text-center p-6 bg-orange-50 dark:bg-orange-950 rounded-xl\">
-                              <div className=\"text-3xl font-bold text-orange-600\">98%</div>
-                              <div className=\"text-sm text-muted-foreground mt-1\">Satisfação</div>
+                            <div className="text-center p-6 bg-orange-50 dark:bg-orange-950 rounded-xl">
+                              <div className="text-3xl font-bold text-orange-600">98%</div>
+                              <div className="text-sm text-muted-foreground mt-1">Satisfação</div>
                             </div>
                           </div>
                         )}
