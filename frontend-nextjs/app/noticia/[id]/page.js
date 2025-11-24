@@ -252,9 +252,9 @@ export default function NewsDetailPage({ params }) {
                   </section>
 
                   {/* Conclusão */}
-                  <section id=\"conclusao\" className=\"scroll-mt-24\">
-                    <h2 className=\"text-3xl font-bold mb-6 flex items-center gap-3\">
-                      <span className=\"w-2 h-8 bg-green-600 rounded-full\"></span>
+                  <section id="conclusao" className="scroll-mt-24">
+                    <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
+                      <span className="w-2 h-8 bg-green-600 rounded-full"></span>
                       Conclusão
                     </h2>
                     <p className=\"text-lg leading-relaxed text-foreground/90 mb-6\">
