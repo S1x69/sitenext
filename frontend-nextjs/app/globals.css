@@ -189,7 +189,28 @@ body {
   box-shadow: var(--shadow-md);
 }
 
+/* Article Content Styles */
+.article-content {
+  line-height: 1.8;
+}
+
+.article-content p {
+  transition: font-size 0.2s ease;
+}
+
 /* Responsive */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .article-content p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+}
+
 @media (max-width: 768px) {
   .carousel-container {
     height: 400px;
