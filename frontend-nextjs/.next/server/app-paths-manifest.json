@@ -1,6 +1,6 @@
 {
   "/page": "app/page.js",
-  "/noticia/[id]/page": "app/noticia/[id]/page.js",
+  "/busca/page": "app/busca/page.js",
   "/categoria/[slug]/page": "app/categoria/[slug]/page.js",
-  "/busca/page": "app/busca/page.js"
+  "/noticia/[id]/page": "app/noticia/[id]/page.js"
 }

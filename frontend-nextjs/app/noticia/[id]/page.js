@@ -184,7 +184,7 @@ export default function NewsDetailPage({ params }) {
                 </div>
 
                 {/* Content Sections */}
-                <div className="prose prose-lg max-w-none dark:prose-invert">
+                <div className="article-content prose prose-lg max-w-none dark:prose-invert">
                   {/* Introdução */}
                   <section id="intro" className="scroll-mt-24">
                     <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
