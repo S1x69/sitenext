@@ -225,3 +225,113 @@ body {
     padding: 20px;
   }
 }
+
+/* Modern Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out;
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out;
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Text Selection */
+::selection {
+  background-color: rgba(59, 130, 246, 0.3);
+  color: inherit;
+}
+
+/* Prose Enhancements */
+.prose {
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+.prose p {
+  margin-bottom: 1.5rem;
+  color: var(--text-tertiary);
+}
+
+.prose h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.prose blockquote {
+  border-left: 4px solid rgb(59, 130, 246);
+  padding-left: 1.5rem;
+  font-style: italic;
+}
+
+/* Floating Elements */
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Hover Effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Reading Progress */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
+  transform-origin: left;
+  z-index: 9999;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
