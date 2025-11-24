@@ -123,15 +123,15 @@ export default function NewsDetailPage({ params }) {
       <ReadingProgress />
 
       <article className="min-h-screen">
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-8">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 mb-4 sm:mb-6 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             Voltar
           </Link>
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-8">
             {/* Table of Contents - Fixed Sidebar */}
             <div className="lg:col-span-1 order-2 lg:order-1">
               <TableOfContents sections={sections} />
