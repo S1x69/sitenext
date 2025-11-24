@@ -257,7 +257,7 @@ export default function NewsDetailPage({ params }) {
                       <span className="w-2 h-8 bg-green-600 rounded-full"></span>
                       Conclusão
                     </h2>
-                    <p className=\"text-lg leading-relaxed text-foreground/90 mb-6\">
+                    <p className="text-lg leading-relaxed text-foreground/90 mb-6">
                       {paragraphs[paragraphs.length - 1]}
                     </p>
                   </section>
