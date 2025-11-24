@@ -209,14 +209,14 @@ export default function NewsDetailPage({ params }) {
 
                   {/* Quote Interativa */}
                   <InteractiveQuote
-                    text=\"Esta é uma das descobertas mais importantes da década e vai impactar milhões de pessoas.\"
+                    text="Esta é uma das descobertas mais importantes da década e vai impactar milhões de pessoas."
                     author={news.author}
                   />
 
                   {/* Desenvolvimento */}
-                  <section id=\"desenvolvimento\" className=\"scroll-mt-24\">
-                    <h2 className=\"text-3xl font-bold mb-6 flex items-center gap-3\">
-                      <span className=\"w-2 h-8 bg-purple-600 rounded-full\"></span>
+                  <section id="desenvolvimento" className="scroll-mt-24">
+                    <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
+                      <span className="w-2 h-8 bg-purple-600 rounded-full"></span>
                       Desenvolvimento
                     </h2>
                     
