@@ -105,7 +105,8 @@ export const categories = [
   { id: 'culture', name: 'Cultura', slug: 'cultura' },
   { id: 'sports', name: 'Esportes', slug: 'esportes' },
   { id: 'world', name: 'Mundo', slug: 'mundo' },
-  { id: 'entertainment', name: 'Entretenimento', slug: 'entretenimento' }
+  { id: 'entertainment', name: 'Entretenimento', slug: 'entretenimento' },
+  { id: 'cotacao', name: 'Cotações', slug: 'cotacoes' }
 ];
 
 export const searchPrefixes = [
