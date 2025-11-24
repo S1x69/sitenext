@@ -1,13 +1,18 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Clock, User, Share2, PlayCircle, ArrowLeft } from 'lucide-react';
+import { Clock, User, ArrowLeft, TrendingUp } from 'lucide-react';
 import { mockNews } from '@/lib/mock';
 import { formatDateLong } from '@/lib/utils';
 import NewsCard from '@/components/NewsCard';
 import ShareButton from '@/components/ShareButton';
 import ReadAloudButton from '@/components/ReadAloudButton';
 import FontControls from '@/components/FontControls';
+import ReadingProgress from '@/components/ReadingProgress';
+import TableOfContents from '@/components/TableOfContents';
+import InteractiveQuote from '@/components/InteractiveQuote';
+import FloatingShareBar from '@/components/FloatingShareBar';
+import ReadingTimeEstimate from '@/components/ReadingTimeEstimate';
 
 export async function generateStaticParams() {
   return mockNews.map((news) => ({
