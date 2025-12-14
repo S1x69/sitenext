@@ -1,130 +1,30 @@
 // Mock data para o portal de notícias
-export const mockNews = [
-  {
-    id: '1',
-    title: 'Inteligência Artificial revoluciona o mercado de tecnologia em 2025',
-    subtitle: 'Novas ferramentas de IA prometem transformar diversos setores da economia',
-    category: 'Tecnologia',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995',
-    content: `A inteligência artificial continua a evoluir de forma exponencial em 2025, trazendo inovações que prometem transformar completamente diversos setores da economia global. Grandes empresas de tecnologia têm investido bilhões em pesquisa e desenvolvimento de novas soluções baseadas em IA.\n\nEspecialistas afirmam que estamos vivendo uma nova era tecnológica, onde a IA não é mais apenas uma ferramenta auxiliar, mas sim o centro das operações de muitas empresas. Setores como saúde, educação, finanças e transporte já começam a sentir os impactos positivos dessa revolução.\n\nA implementação de modelos de linguagem avançados tem permitido automações antes impensáveis. Empresas relatam aumento de 40% na produtividade após adoção de assistentes de IA em suas operações diárias.\n\nOs desafios éticos e regulatórios também estão no centro das discussões. Governos ao redor do mundo trabalham para criar legislações que garantam o uso responsável e seguro da inteligência artificial, protegendo os direitos dos cidadãos enquanto permitem a inovação continuar avançando.`,
-    author: 'Ana Silva',
-    date: '2025-01-15T10:30:00Z',
-    featured: true,
-    tag: 'Última Hora'
-  },
-  {
-    id: '2',
-    title: 'Brasil conquista medalha de ouro em competição internacional',
-    subtitle: 'Atleta brasileiro quebra recorde mundial na prova de 100 metros',
-    category: 'Esportes',
-    image: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5',
-    content: `Em uma noite histórica para o esporte brasileiro, o atleta João Santos conquistou a medalha de ouro na prova de 100 metros rasos, quebrando o recorde mundial com o tempo impressionante de 9.52 segundos.\n\nA conquista aconteceu durante o Campeonato Mundial de Atletismo, realizado em Paris, França. João Santos, de apenas 23 anos, superou favoritos de diversos países e entrou para a história do esporte mundial.\n\nO técnico da seleção brasileira comemorou o resultado e destacou o trabalho árduo do atleta nos últimos anos. A preparação envolveu treinos intensivos, acompanhamento nutricional rigoroso e suporte psicológico constante.\n\nA vitória representa um marco para o atletismo brasileiro, que nos últimos anos tem investido pesado em tecnologia e ciência esportiva. O Centro Nacional de Treinamento adotou equipamentos de ponta para análise biomecânica e otimização de performance.\n\nEspecialistas apontam que este é apenas o começo de uma nova geração de atletas brasileiros que chegarão ao pódio nas próximas competições internacionais.`,
-    author: 'Carlos Mendes',
-    date: '2025-01-15T08:15:00Z',
-    featured: true,
-    tag: 'Mais Lidas'
-  },
-  {
-    id: '3',
-    title: 'Cúpula global discute mudanças climáticas e metas para 2030',
-    subtitle: 'Líderes mundiais se reúnem para debater ações urgentes contra o aquecimento global',
-    category: 'Mundo',
-    image: 'https://images.unsplash.com/photo-1569163139394-de4798aa62b6',
-    content: `Representantes de mais de 190 países se reuniram nesta semana para discutir medidas urgentes de combate às mudanças climáticas. A cúpula, realizada em Genebra, tem como objetivo estabelecer metas mais ambiciosas para redução de emissões de gases do efeito estufa até 2030.\n\nOs debates incluem temas como transição energética, preservação de florestas, desenvolvimento de tecnologias limpas e financiamento para países em desenvolvimento implementarem políticas sustentáveis.\n\nUm dos destaques foi o anúncio de um fundo de US$ 500 bilhões para apoiar países em desenvolvimento na implementação de energias renováveis. União Europeia e Estados Unidos lideram a iniciativa.\n\nCientistas alertam que a janela de oportunidade para evitar consequências catastróficas do aquecimento global está se fechando rapidamente. As decisões tomadas nesta década serão cruciais para o futuro do planeta.\n\nPaíses insulares, ameaçados pelo aumento do nível do mar, pressionam por ações mais agressivas e imediatas. Representantes das Maldivas e Fiji fizeram discursos emocionados durante a sessão plenária.`,
-    author: 'Marina Costa',
-    date: '2025-01-14T16:45:00Z',
-    featured: true,
-    tag: 'Recomendado'
-  },
-  {
-    id: '4',
-    title: 'Nova série quebra recordes de audiência em plataforma de streaming',
-    subtitle: 'Produção brasileira se torna fenômeno global',
-    category: 'Entretenimento',
-    image: 'https://images.unsplash.com/photo-1574267432644-f4ced8b0fd20',
-    content: `A série brasileira "Destinos Cruzados" quebrou todos os recordes de audiência na principal plataforma de streaming global, alcançando o primeiro lugar em mais de 80 países nos primeiros dias de lançamento.\n\nA produção, que conta com um elenco de peso do cinema e televisão brasileira, conquistou crítica e público com sua narrativa envolvente e produção cinematográfica de alto nível.\n\nCom orçamento de R$ 120 milhões, a série representa o maior investimento já feito em uma produção audiovisual brasileira. Os cenários foram construídos em três estados diferentes e as filmagens duraram 9 meses.\n\nDiretores e produtores comemoram o sucesso internacional, que marca um momento importante para o audiovisual brasileiro no mercado global. A plataforma já confirmou a produção da segunda temporada.\n\nCríticos internacionais elogiaram a fotografia, roteiro e performances do elenco. O The Hollywood Reporter chamou a série de "o melhor drama sul-americano da década".`,
-    author: 'Pedro Oliveira',
-    date: '2025-01-14T14:20:00Z',
-    featured: false,
-    tag: 'Mais Lidas'
-  },
-  {
-    id: '5',
-    title: 'Startup brasileira recebe investimento milionário',
-    subtitle: 'Empresa de tecnologia educacional capta R$ 50 milhões',
-    category: 'Tecnologia',
-    image: 'https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg',
-    content: `Uma startup brasileira especializada em tecnologia educacional anunciou nesta semana a captação de R$ 50 milhões em uma rodada de investimentos liderada por fundos internacionais.\n\nA empresa, que desenvolve plataformas de ensino adaptativo utilizando inteligência artificial, planeja usar os recursos para expandir suas operações para outros países da América Latina e contratar novos talentos.\n\nO CEO da startup destacou que a educação é um dos setores com maior potencial de transformação através da tecnologia, e que a empresa está comprometida em democratizar o acesso a ensino de qualidade.`,
-    author: 'Ana Silva',
-    date: '2025-01-13T11:30:00Z',
-    featured: false,
-    tag: null
-  },
-  {
-    id: '6',
-    title: 'Copa do Mundo 2026: Brasil define lista de convocados',
-    subtitle: 'Técnico anuncia seleção para competição mais aguardada do futebol',
-    category: 'Esportes',
-    image: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55',
-    content: `O técnico da seleção brasileira divulgou hoje a lista oficial de convocados para a Copa do Mundo de 2026. A lista traz uma mistura de jogadores experientes e jovens talentos promissores.\n\nEntre as surpresas, destaque para a convocação de três jogadores que atuam no futebol brasileiro, contrariando a tendência dos últimos anos de priorizar atletas que jogam na Europa.\n\nA preparação da equipe começará em março, com uma série de amistosos contra seleções tradicionais. A expectativa é grande para que o Brasil conquiste seu sexto título mundial.`,
-    author: 'Carlos Mendes',
-    date: '2025-01-13T09:00:00Z',
-    featured: false,
-    tag: null
-  },
-  {
-    id: '7',
-    title: 'Festival de música reúne milhares de pessoas em São Paulo',
-    subtitle: 'Evento conta com artistas nacionais e internacionais',
-    category: 'Entretenimento',
-    image: 'https://images.unsplash.com/photo-1603190287605-e6ade32fa852',
-    content: `O maior festival de música do Brasil começou neste fim de semana em São Paulo, reunindo mais de 100 mil pessoas por dia. O evento, que acontece durante três dias, conta com apresentações de artistas nacionais e internacionais em diversos palcos.\n\nA programação diversificada inclui shows de rock, pop, eletrônica, sertanejo e hip hop, atendendo aos mais variados gostos musicais. A organização destacou o compromisso com sustentabilidade, implementando diversas ações ambientais.\n\nIngressos para os últimos dias já estão praticamente esgotados, demonstrando o sucesso do evento que se consolidou como um dos principais do calendário cultural do país.`,
-    author: 'Pedro Oliveira',
-    date: '2025-01-12T18:30:00Z',
-    featured: false,
-    tag: null
-  },
-  {
-    id: '8',
-    title: 'Descoberta científica pode revolucionar tratamento de doenças',
-    subtitle: 'Pesquisadores brasileiros fazem avanço importante na medicina',
-    category: 'Mundo',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa',
-    content: `Um grupo de pesquisadores brasileiros anunciou uma descoberta que pode revolucionar o tratamento de diversas doenças degenerativas. O estudo, publicado em uma das principais revistas científicas internacionais, apresenta uma nova abordagem terapêutica promissora.\n\nA pesquisa foi desenvolvida ao longo de cinco anos com financiamento de agências nacionais e internacionais. Os testes clínicos devem começar ainda este ano, após aprovação dos órgãos reguladores.\n\nA comunidade científica internacional recebeu a notícia com entusiasmo, destacando a qualidade da pesquisa brasileira e o potencial impacto positivo para milhões de pessoas ao redor do mundo.`,
-    author: 'Marina Costa',
-    date: '2025-01-12T15:00:00Z',
-    featured: false,
-    tag: null
-  },
-  {
-    id: '9',
-    title: 'Cotações do Agronegócio: Milho registra alta de 2,3% no mercado',
-    subtitle: 'Aumento na demanda e clima favorável impulsionam preços das commodities agrícolas',
-    category: 'Cotações',
-    image: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d',
-    content: `O mercado de commodities agrícolas brasileiras apresentou movimentação positiva nesta semana, com destaque para o milho que registrou alta de 2,3%, fechando a saca de 60kg a R$ 67,50.\n\nEspecialistas apontam que o aumento se deve à maior demanda tanto do mercado interno quanto externo, aliado a condições climáticas favoráveis nas principais regiões produtoras. O setor de proteína animal tem mantido compras consistentes, sustentando os preços.\n\nO boi gordo também apresentou valorização de 1,8%, com a arroba cotada a R$ 312,50. A demanda por carne bovina segue aquecida, impulsionada pelo período de festas e maior poder de compra do consumidor.\n\nNo setor de proteínas, o frango registrou leve alta de 0,5%, com o quilo a R$ 8,45. Já o suíno apresentou pequena queda de 0,8%, cotado a R$ 9,20 por quilo.\n\nO café arábica foi destaque positivo com alta de 3,2%, alcançando R$ 1.284,00 a saca. Fatores climáticos e demanda internacional sustentam os preços em patamares elevados.\n\nAnalistas recomendam atenção às previsões climáticas para as próximas semanas, que podem influenciar significativamente as cotações de grãos e proteínas.`,
-    author: 'Roberto Campos',
-    date: '2025-01-15T14:30:00Z',
-    featured: true,
-    tag: 'Atualizado'
-  }
-];
+export const mockNews = [];
 
 export const categories = [
   { id: 'all', name: 'Todas', slug: 'todas' },
-  { id: 'news', name: 'Notícias', slug: 'noticias' },
-  { id: 'tech', name: 'Tecnologia', slug: 'tecnologia' },
-  { id: 'culture', name: 'Cultura', slug: 'cultura' },
-  { id: 'sports', name: 'Esportes', slug: 'esportes' },
-  { id: 'world', name: 'Mundo', slug: 'mundo' },
-  { id: 'entertainment', name: 'Entretenimento', slug: 'entretenimento' },
+  { id: 'agronegocio', name: 'Agronegócio', slug: 'agronegocio' },
+  { id: 'economia', name: 'Economia', slug: 'economia' },
+  { id: 'mercado', name: 'Mercado', slug: 'mercado' },
+  { id: 'clima', name: 'Clima', slug: 'clima' },
+  { id: 'politica', name: 'Política', slug: 'politica' },
+  { id: 'saude', name: 'Saúde', slug: 'saude' },
+  { id: 'internacional', name: 'Internacional', slug: 'internacional' },
+
+  //{ id: 'news', name: 'Notícias', slug: 'noticias' },
+   { id: 'tech', name: 'Tecnologia', slug: 'tecnologia' },
+  //{ id: 'culture', name: 'Cultura', slug: 'cultura' },
+  //{ id: 'sports', name: 'Esportes', slug: 'esportes' },
+  //{ id: 'world', name: 'Mundo', slug: 'mundo' },
+  //{ id: 'entertainment', name: 'Entretenimento', slug: 'entretenimento' },
   { id: 'cotacao', name: 'Cotações', slug: 'cotacoes' }
+
 ];
 
 export const searchPrefixes = [
   { id: 1, label: 'Tecnologia', icon: '🔍' },
   { id: 2, label: 'Últimas Notícias', icon: '📰' },
-  { id: 3, label: 'Esportes', icon: '⚽' },
+  { id: 3, label: 'Mercado', icon: '📈' },
   { id: 4, label: 'Internacional', icon: '🌍' },
   { id: 5, label: 'Curiosidades', icon: '💡' },
   { id: 6, label: 'Entretenimento', icon: '🎬' }
@@ -142,7 +42,16 @@ export const cotacoes = [
     maximo: 68.90,
     ultimaAtualizacao: '2025-01-15T14:30:00Z',
     icon: '🌽',
-    cor: 'yellow'
+    cor: 'yellow',
+    historico7dias: [
+      { dia: 'Seg', data: '2025-01-08', preco: 65.80, variacao: -1.2 },
+      { dia: 'Ter', data: '2025-01-09', preco: 66.30, variacao: 0.8 },
+      { dia: 'Qua', data: '2025-01-10', preco: 64.90, variacao: -2.1 },
+      { dia: 'Qui', data: '2025-01-11', preco: 66.50, variacao: 2.5 },
+      { dia: 'Sex', data: '2025-01-12', preco: 67.70, variacao: 1.8 },
+      { dia: 'Sáb', data: '2025-01-13', preco: 67.50, variacao: -0.3 },
+      { dia: 'Hoje', data: '2025-01-15', preco: 67.50, variacao: 2.3 }
+    ]
   },
   {
     id: 'soja',
@@ -154,7 +63,16 @@ export const cotacoes = [
     maximo: 145.20,
     ultimaAtualizacao: '2025-01-15T14:30:00Z',
     icon: '🫘',
-    cor: 'green'
+    cor: 'green',
+    historico7dias: [
+      { dia: 'Seg', data: '2025-01-08', preco: 145.20, variacao: 0.5 },
+      { dia: 'Ter', data: '2025-01-09', preco: 146.10, variacao: 0.6 },
+      { dia: 'Qua', data: '2025-01-10', preco: 144.80, variacao: -0.9 },
+      { dia: 'Qui', data: '2025-01-11', preco: 145.50, variacao: 0.5 },
+      { dia: 'Sex', data: '2025-01-12', preco: 144.20, variacao: -0.9 },
+      { dia: 'Sáb', data: '2025-01-13', preco: 144.95, variacao: 0.5 },
+      { dia: 'Hoje', data: '2025-01-15', preco: 142.80, variacao: -1.5 }
+    ]
   },
   {
     id: 'boi-gordo',
@@ -166,7 +84,16 @@ export const cotacoes = [
     maximo: 318.00,
     ultimaAtualizacao: '2025-01-15T14:30:00Z',
     icon: '🐄',
-    cor: 'red'
+    cor: 'red',
+    historico7dias: [
+      { dia: 'Seg', data: '2025-01-08', preco: 307.00, variacao: 0.3 },
+      { dia: 'Ter', data: '2025-01-09', preco: 308.50, variacao: 0.5 },
+      { dia: 'Qua', data: '2025-01-10', preco: 306.80, variacao: -0.6 },
+      { dia: 'Qui', data: '2025-01-11', preco: 309.20, variacao: 0.8 },
+      { dia: 'Sex', data: '2025-01-12', preco: 310.50, variacao: 0.4 },
+      { dia: 'Sáb', data: '2025-01-13', preco: 306.95, variacao: -1.1 },
+      { dia: 'Hoje', data: '2025-01-15', preco: 312.50, variacao: 1.8 }
+    ]
   },
   {
     id: 'frango',
@@ -178,7 +105,16 @@ export const cotacoes = [
     maximo: 8.60,
     ultimaAtualizacao: '2025-01-15T14:30:00Z',
     icon: '🐔',
-    cor: 'orange'
+    cor: 'orange',
+    historico7dias: [
+      { dia: 'Seg', data: '2025-01-08', preco: 8.35, variacao: -0.2 },
+      { dia: 'Ter', data: '2025-01-09', preco: 8.40, variacao: 0.6 },
+      { dia: 'Qua', data: '2025-01-10', preco: 8.32, variacao: -1.0 },
+      { dia: 'Qui', data: '2025-01-11', preco: 8.38, variacao: 0.7 },
+      { dia: 'Sex', data: '2025-01-12', preco: 8.42, variacao: 0.5 },
+      { dia: 'Sáb', data: '2025-01-13', preco: 8.41, variacao: -0.1 },
+      { dia: 'Hoje', data: '2025-01-15', preco: 8.45, variacao: 0.5 }
+    ]
   },
   {
     id: 'suino',
@@ -190,7 +126,16 @@ export const cotacoes = [
     maximo: 9.50,
     ultimaAtualizacao: '2025-01-15T14:30:00Z',
     icon: '🐷',
-    cor: 'pink'
+    cor: 'pink',
+    historico7dias: [
+      { dia: 'Seg', data: '2025-01-08', preco: 9.35, variacao: 0.5 },
+      { dia: 'Ter', data: '2025-01-09', preco: 9.40, variacao: 0.5 },
+      { dia: 'Qua', data: '2025-01-10', preco: 9.28, variacao: -1.3 },
+      { dia: 'Qui', data: '2025-01-11', preco: 9.32, variacao: 0.4 },
+      { dia: 'Sex', data: '2025-01-12', preco: 9.27, variacao: -0.5 },
+      { dia: 'Sáb', data: '2025-01-13', preco: 9.27, variacao: 0.0 },
+      { dia: 'Hoje', data: '2025-01-15', preco: 9.20, variacao: -0.8 }
+    ]
   },
   {
     id: 'cafe',
@@ -202,7 +147,16 @@ export const cotacoes = [
     maximo: 1320.00,
     ultimaAtualizacao: '2025-01-15T14:30:00Z',
     icon: '☕',
-    cor: 'brown'
+    cor: 'brown',
+    historico7dias: [
+      { dia: 'Seg', data: '2025-01-08', preco: 1245.00, variacao: 0.8 },
+      { dia: 'Ter', data: '2025-01-09', preco: 1252.50, variacao: 0.6 },
+      { dia: 'Qua', data: '2025-01-10', preco: 1240.00, variacao: -1.0 },
+      { dia: 'Qui', data: '2025-01-11', preco: 1258.00, variacao: 1.5 },
+      { dia: 'Sex', data: '2025-01-12', preco: 1270.00, variacao: 1.0 },
+      { dia: 'Sáb', data: '2025-01-13', preco: 1244.50, variacao: -2.0 },
+      { dia: 'Hoje', data: '2025-01-15', preco: 1284.00, variacao: 3.2 }
+    ]
   },
   {
     id: 'acucar',
@@ -214,7 +168,16 @@ export const cotacoes = [
     maximo: 115.00,
     ultimaAtualizacao: '2025-01-15T14:30:00Z',
     icon: '🍬',
-    cor: 'white'
+    cor: 'white',
+    historico7dias: [
+      { dia: 'Seg', data: '2025-01-08', preco: 111.20, variacao: 0.4 },
+      { dia: 'Ter', data: '2025-01-09', preco: 111.80, variacao: 0.5 },
+      { dia: 'Qua', data: '2025-01-10', preco: 110.90, variacao: -0.8 },
+      { dia: 'Qui', data: '2025-01-11', preco: 111.50, variacao: 0.5 },
+      { dia: 'Sex', data: '2025-01-12', preco: 112.00, variacao: 0.4 },
+      { dia: 'Sáb', data: '2025-01-13', preco: 111.08, variacao: -0.8 },
+      { dia: 'Hoje', data: '2025-01-15', preco: 112.30, variacao: 1.1 }
+    ]
   },
   {
     id: 'trigo',
@@ -226,6 +189,183 @@ export const cotacoes = [
     maximo: 82.00,
     ultimaAtualizacao: '2025-01-15T14:30:00Z',
     icon: '🌾',
-    cor: 'amber'
+    cor: 'amber',
+    historico7dias: [
+      { dia: 'Seg', data: '2025-01-08', preco: 80.50, variacao: -0.6 },
+      { dia: 'Ter', data: '2025-01-09', preco: 81.20, variacao: 0.9 },
+      { dia: 'Qua', data: '2025-01-10', preco: 80.00, variacao: -1.5 },
+      { dia: 'Qui', data: '2025-01-11', preco: 80.60, variacao: 0.8 },
+      { dia: 'Sex', data: '2025-01-12', preco: 81.00, variacao: 0.5 },
+      { dia: 'Sáb', data: '2025-01-13', preco: 80.60, variacao: -0.5 },
+      { dia: 'Hoje', data: '2025-01-15', preco: 78.90, variacao: -2.1 }
+    ]
+  },
+  {
+    id: 'arroz',
+    nome: 'Arroz',
+    unidade: 'saca 50kg',
+    preco: 95.40,
+    variacao: 1.4,
+    minimo: 92.80,
+    maximo: 97.50,
+    ultimaAtualizacao: '2025-01-15T14:30:00Z',
+    icon: '🍚',
+    cor: 'white',
+    historico7dias: [
+      { dia: 'Seg', data: '2025-01-08', preco: 94.10, variacao: 0.3 },
+      { dia: 'Ter', data: '2025-01-09', preco: 94.50, variacao: 0.4 },
+      { dia: 'Qua', data: '2025-01-10', preco: 93.80, variacao: -0.7 },
+      { dia: 'Qui', data: '2025-01-11', preco: 94.20, variacao: 0.4 },
+      { dia: 'Sex', data: '2025-01-12', preco: 95.00, variacao: 0.8 },
+      { dia: 'Sáb', data: '2025-01-13', preco: 94.08, variacao: -1.0 },
+      { dia: 'Hoje', data: '2025-01-15', preco: 95.40, variacao: 1.4 }
+    ]
+  },
+  {
+    id: 'algodao',
+    nome: 'Algodão',
+    unidade: 'arroba',
+    preco: 158.70,
+    variacao: 2.8,
+    minimo: 152.00,
+    maximo: 162.00,
+    ultimaAtualizacao: '2025-01-15T14:30:00Z',
+    icon: '🌸',
+    cor: 'white',
+    historico7dias: [
+      { dia: 'Seg', data: '2025-01-08', preco: 154.30, variacao: 0.8 },
+      { dia: 'Ter', data: '2025-01-09', preco: 155.80, variacao: 1.0 },
+      { dia: 'Qua', data: '2025-01-10', preco: 153.90, variacao: -1.2 },
+      { dia: 'Qui', data: '2025-01-11', preco: 156.20, variacao: 1.5 },
+      { dia: 'Sex', data: '2025-01-12', preco: 157.40, variacao: 0.8 },
+      { dia: 'Sáb', data: '2025-01-13', preco: 154.35, variacao: -1.9 },
+      { dia: 'Hoje', data: '2025-01-15', preco: 158.70, variacao: 2.8 }
+    ]
+  },
+  {
+    id: 'cana-acucar',
+    nome: 'Cana-de-açúcar',
+    unidade: 'tonelada',
+    preco: 142.50,
+    variacao: 0.7,
+    minimo: 138.00,
+    maximo: 146.00,
+    ultimaAtualizacao: '2025-01-15T14:30:00Z',
+    icon: '🎋',
+    cor: 'green',
+    historico7dias: [
+      { dia: 'Seg', data: '2025-01-08', preco: 141.50, variacao: 0.4 },
+      { dia: 'Ter', data: '2025-01-09', preco: 141.90, variacao: 0.3 },
+      { dia: 'Qua', data: '2025-01-10', preco: 140.80, variacao: -0.8 },
+      { dia: 'Qui', data: '2025-01-11', preco: 141.60, variacao: 0.6 },
+      { dia: 'Sex', data: '2025-01-12', preco: 142.20, variacao: 0.4 },
+      { dia: 'Sáb', data: '2025-01-13', preco: 141.50, variacao: -0.5 },
+      { dia: 'Hoje', data: '2025-01-15', preco: 142.50, variacao: 0.7 }
+    ]
+  },
+  {
+    id: 'mandioca',
+    nome: 'Mandioca',
+    unidade: 'tonelada',
+    preco: 420.00,
+    variacao: -1.2,
+    minimo: 405.00,
+    maximo: 435.00,
+    ultimaAtualizacao: '2025-01-15T14:30:00Z',
+    icon: '🥔',
+    cor: 'brown',
+    historico7dias: [
+      { dia: 'Seg', data: '2025-01-08', preco: 425.00, variacao: 0.6 },
+      { dia: 'Ter', data: '2025-01-09', preco: 427.50, variacao: 0.6 },
+      { dia: 'Qua', data: '2025-01-10', preco: 423.00, variacao: -1.1 },
+      { dia: 'Qui', data: '2025-01-11', preco: 426.00, variacao: 0.7 },
+      { dia: 'Sex', data: '2025-01-12', preco: 425.00, variacao: -0.2 },
+      { dia: 'Sáb', data: '2025-01-13', preco: 425.10, variacao: 0.0 },
+      { dia: 'Hoje', data: '2025-01-15', preco: 420.00, variacao: -1.2 }
+    ]
+  },
+  {
+    id: 'leite',
+    nome: 'Leite',
+    unidade: 'litro',
+    preco: 2.85,
+    variacao: 1.6,
+    minimo: 2.70,
+    maximo: 2.95,
+    ultimaAtualizacao: '2025-01-15T14:30:00Z',
+    icon: '🥛',
+    cor: 'white',
+    historico7dias: [
+      { dia: 'Seg', data: '2025-01-08', preco: 2.80, variacao: 0.4 },
+      { dia: 'Ter', data: '2025-01-09', preco: 2.82, variacao: 0.7 },
+      { dia: 'Qua', data: '2025-01-10', preco: 2.78, variacao: -1.4 },
+      { dia: 'Qui', data: '2025-01-11', preco: 2.81, variacao: 1.1 },
+      { dia: 'Sex', data: '2025-01-12', preco: 2.83, variacao: 0.7 },
+      { dia: 'Sáb', data: '2025-01-13', preco: 2.80, variacao: -1.1 },
+      { dia: 'Hoje', data: '2025-01-15', preco: 2.85, variacao: 1.6 }
+    ]
+  },
+  {
+    id: 'ovos',
+    nome: 'Ovos',
+    unidade: 'caixa 30dz',
+    preco: 189.50,
+    variacao: 2.1,
+    minimo: 182.00,
+    maximo: 195.00,
+    ultimaAtualizacao: '2025-01-15T14:30:00Z',
+    icon: '🥚',
+    cor: 'yellow',
+    historico7dias: [
+      { dia: 'Seg', data: '2025-01-08', preco: 185.60, variacao: 0.5 },
+      { dia: 'Ter', data: '2025-01-09', preco: 186.80, variacao: 0.6 },
+      { dia: 'Qua', data: '2025-01-10', preco: 184.50, variacao: -1.2 },
+      { dia: 'Qui', data: '2025-01-11', preco: 186.00, variacao: 0.8 },
+      { dia: 'Sex', data: '2025-01-12', preco: 187.50, variacao: 0.8 },
+      { dia: 'Sáb', data: '2025-01-13', preco: 185.60, variacao: -1.0 },
+      { dia: 'Hoje', data: '2025-01-15', preco: 189.50, variacao: 2.1 }
+    ]
+  },
+  {
+    id: 'tilapia',
+    nome: 'Tilápia',
+    unidade: 'kg',
+    preco: 12.80,
+    variacao: 0.9,
+    minimo: 12.30,
+    maximo: 13.20,
+    ultimaAtualizacao: '2025-01-15T14:30:00Z',
+    icon: '🐟',
+    cor: 'blue',
+    historico7dias: [
+      { dia: 'Seg', data: '2025-01-08', preco: 12.65, variacao: 0.4 },
+      { dia: 'Ter', data: '2025-01-09', preco: 12.70, variacao: 0.4 },
+      { dia: 'Qua', data: '2025-01-10', preco: 12.55, variacao: -1.2 },
+      { dia: 'Qui', data: '2025-01-11', preco: 12.68, variacao: 1.0 },
+      { dia: 'Sex', data: '2025-01-12', preco: 12.75, variacao: 0.6 },
+      { dia: 'Sáb', data: '2025-01-13', preco: 12.68, variacao: -0.5 },
+      { dia: 'Hoje', data: '2025-01-15', preco: 12.80, variacao: 0.9 }
+    ]
+  },
+  {
+    id: 'ovinos',
+    nome: 'Ovinos',
+    unidade: 'kg vivo',
+    preco: 9.85,
+    variacao: 1.3,
+    minimo: 9.50,
+    maximo: 10.20,
+    ultimaAtualizacao: '2025-01-15T14:30:00Z',
+    icon: '🐑',
+    cor: 'gray',
+    historico7dias: [
+      { dia: 'Seg', data: '2025-01-08', preco: 9.70, variacao: 0.5 },
+      { dia: 'Ter', data: '2025-01-09', preco: 9.75, variacao: 0.5 },
+      { dia: 'Qua', data: '2025-01-10', preco: 9.62, variacao: -1.3 },
+      { dia: 'Qui', data: '2025-01-11', preco: 9.72, variacao: 1.0 },
+      { dia: 'Sex', data: '2025-01-12', preco: 9.78, variacao: 0.6 },
+      { dia: 'Sáb', data: '2025-01-13', preco: 9.72, variacao: -0.6 },
+      { dia: 'Hoje', data: '2025-01-15', preco: 9.85, variacao: 1.3 }
+    ]
   }
 ];

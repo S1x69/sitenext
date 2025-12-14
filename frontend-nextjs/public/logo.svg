@@ -1,0 +1,21 @@
+<svg width="600" height="60" viewBox="0 0 600 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="600" height="60" fill="white"/>
+  
+  <!-- Icon Circle with gradient -->
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Logo Icon - BN in circle -->
+  <circle cx="30" cy="30" r="24" fill="url(#logoGradient)"/>
+  <text x="30" y="38" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">BN</text>
+  
+  <!-- Text: BocaNoticias -->
+  <text x="70" y="42" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#1F2937">
+    Boca<tspan fill="#3B82F6">Noticias</tspan>
+  </text>
+</svg>

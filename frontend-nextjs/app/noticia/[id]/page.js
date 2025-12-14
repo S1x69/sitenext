@@ -3,7 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Clock, User, ArrowLeft, TrendingUp } from 'lucide-react';
 import { mockNews } from '@/lib/mock';
-import { formatDateLong } from '@/lib/utils';
+import { fetchNewsFromBoca } from '@/lib/api';
+import { formatDateLong, getContentAsText } from '@/lib/utils';
+import BrowserLog  from "@/components/BrowserLog";
 import NewsCard from '@/components/NewsCard';
 import ShareButton from '@/components/ShareButton';
 import ReadAloudButton from '@/components/ReadAloudButton';
@@ -66,47 +68,101 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function NewsDetailPage({ params }) {
-  const news = mockNews.find(n => n.id === params.id);
+export default async function NewsDetailPage({ params }) {
+  // Tentar buscar da API primeiro
+  let news = null;
+  
+  try {
+    const apiNews = await fetchNewsFromBoca(100);
+    news = apiNews.find(n => n.id === params.id);
+  } catch (error) {
+    console.error('Erro ao buscar da API:', error);
+  }
+  
+  // Fallback para mockNews se não encontrar na API
+  if (!news) {
+    news = mockNews.find(n => n.id === params.id);
+  }
 
   if (!news) {
     notFound();
   }
 
-  const relatedNews = mockNews.filter(
-    n => n.category === news.category && n.id !== news.id
-  ).slice(0, 3);
+  // Buscar notícias relacionadas da API
+  let relatedNews = [];
+  try {
+    const apiNews = await fetchNewsFromBoca(20);
+    relatedNews = apiNews.filter(
+      n => n.category === news.category && n.id !== news.id
+    ).slice(0, 3);
+  } catch (error) {
+    // Fallback para mockNews
+    relatedNews = mockNews.filter(
+      n => n.category === news.category && n.id !== news.id
+    ).slice(0, 3);
+  }
 
-  // JSON-LD Schema para artigo
+  // JSON-LD Schema para artigo - SEO profissional
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
     headline: news.title,
+    alternativeHeadline: news.subtitle,
     description: news.subtitle,
-    image: news.image,
+    image: {
+      '@type': 'ImageObject',
+      url: news.image,
+      width: 1200,
+      height: 630,
+    },
     datePublished: news.date,
-    dateModified: news.date,
+    dateModified: news.last_modified || news.date,
     author: {
       '@type': 'Person',
       name: news.author,
+      url: `${baseUrl}/autor/${news.author.toLowerCase().replace(/\s+/g, '-')}`,
     },
     publisher: {
       '@type': 'Organization',
-      name: 'NewsNow',
+      name: 'BocaNoticias',
+      url: baseUrl,
       logo: {
         '@type': 'ImageObject',
-        url: `${process.env.NEXT_PUBLIC_SITE_URL}/logo.png`,
+        url: `${baseUrl}/logo.svg`,
+        width: 600,
+        height: 60,
       },
+      sameAs: [
+        'https://facebook.com/bocanoticias',
+        'https://twitter.com/bocanoticias',
+        'https://instagram.com/bocanoticias',
+      ],
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${process.env.NEXT_PUBLIC_SITE_URL}/noticia/${news.id}`,
+      '@id': `${baseUrl}/noticia/${news.id}`,
     },
     articleSection: news.category,
+    articleBody: typeof news.content === 'string' ? news.content : JSON.stringify(news.content),
+    keywords: news.tags ? (typeof news.tags === 'object' ? Object.values(news.tags).join(', ') : news.tags) : news.category,
+    inLanguage: 'pt-BR',
+    isAccessibleForFree: true,
   };
 
   // Extrair seções do conteúdo para Table of Contents
-  const paragraphs = news.content.split('\n\n');
+  const content = typeof news.content === 'string' ? {
+    introducao: news.content.split('\n\n')[0] || '',
+    blockquote: 'Esta é uma das descobertas mais importantes e vai impactar milhões de pessoas.',
+    desenvolvimento: news.content.split('\n\n').slice(1, -1) || [],
+    conclusao: news.content.split('\n\n')[news.content.split('\n\n').length - 1] || '',
+    pontosChave: [
+      'Inovação tecnológica está transformando o mercado',
+      'Impacto esperado em diversos setores da economia',
+      'Necessidade de regulamentação e ética nas aplicações'
+    ]
+  } : news.content;
+
   const sections = [
     { id: 'intro', title: 'Introdução' },
     { id: 'desenvolvimento', title: 'Desenvolvimento' },
@@ -122,6 +178,8 @@ export default function NewsDetailPage({ params }) {
 
       <ReadingProgress />
 
+      <BrowserLog data={news} />
+
       <article className="min-h-screen">
         <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-8">
           <Link
@@ -132,14 +190,14 @@ export default function NewsDetailPage({ params }) {
             Voltar
           </Link>
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-8">
-            {/* Table of Contents - Fixed Sidebar */}
-            <div className="lg:col-span-1 order-2 lg:order-1">
+            {/* Table of Contents - Fixed Sidebar - Hidden on mobile */}
+            <div className="hidden lg:block lg:col-span-1 lg:order-1">
               <TableOfContents sections={sections} />
             </div>
 
             {/* Main Content */}
             <div className="lg:col-span-2 order-1 lg:order-2">
-              <div className="bg-card rounded-2xl p-4 sm:p-6 md:p-10 shadow-sm border">
+              <div className="bg-card rounded-2xl p-3 sm:p-6 md:p-10 shadow-sm border">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="px-4 py-2 rounded-full bg-blue-600 text-white text-sm font-semibold">
                     {news.category}
@@ -166,9 +224,15 @@ export default function NewsDetailPage({ params }) {
                 </div>
 
                 {/* Action Bar */}
-                <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                  <ReadAloudButton content={news.content} />
-                  <ShareButton title={news.title} />
+                <div className="flex flex-wrap items-center gap-2 mb-4 sm:mb-6">
+                  <div className="flex gap-2 w-full sm:w-auto">
+                    <div className="flex-1 sm:flex-initial">
+                      <ReadAloudButton content={getContentAsText(news.content)} />
+                    </div>
+                    <div className="flex-1 sm:flex-initial">
+                      <ShareButton title={news.title} />
+                    </div>
+                  </div>
                   <FontControls />
                 </div>
 
@@ -192,13 +256,13 @@ export default function NewsDetailPage({ params }) {
                       Introdução
                     </h2>
                     <p className="text-lg leading-relaxed text-foreground/90 mb-6 first-letter:text-6xl first-letter:font-bold first-letter:text-blue-600 first-letter:mr-2 first-letter:float-left">
-                      {paragraphs[0]}
+                      {content.introducao}
                     </p>
                   </section>
 
                   {/* Quote Interativa */}
                   <InteractiveQuote
-                    text="Esta é uma das descobertas mais importantes da década e vai impactar milhões de pessoas."
+                    text={content.blockquote}
                     author={news.author}
                   />
 
@@ -209,7 +273,7 @@ export default function NewsDetailPage({ params }) {
                       Desenvolvimento
                     </h2>
                     
-                    {paragraphs.slice(1, -1).map((paragraph, index) => (
+                    {(Array.isArray(content.desenvolvimento) ? content.desenvolvimento : [content.desenvolvimento]).map((paragraph, index) => (
                       <div key={index} className="mb-8">
                         <p className="text-lg leading-relaxed text-foreground/90">
                           {paragraph}
@@ -247,7 +311,7 @@ export default function NewsDetailPage({ params }) {
                       Conclusão
                     </h2>
                     <p className="text-lg leading-relaxed text-foreground/90 mb-6">
-                      {paragraphs[paragraphs.length - 1]}
+                      {content.conclusao}
                     </p>
                   </section>
 
@@ -258,27 +322,23 @@ export default function NewsDetailPage({ params }) {
                       <h3 className="text-2xl font-bold">Pontos-Chave</h3>
                     </div>
                     <ul className="space-y-3">
-                      <li className="flex items-start gap-3">
-                        <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
-                        <span className="text-foreground/90">Inovação tecnológica está transformando o mercado</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
-                        <span className="text-foreground/90">Impacto esperado em diversos setores da economia</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
-                        <span className="text-foreground/90">Necessidade de regulamentação e ética nas aplicações</span>
-                      </li>
+                      {content.pontosChave.map((ponto, index) => (
+                        <li key={index} className="flex items-start gap-3">
+                          <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">{index + 1}</span>
+                          <span className="text-foreground/90">{ponto}</span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 </div>
 
                 {/* Author Bio */}
-                <AuthorBio author={news.author} category={news.category} />
-
+                
+                <div className="hidden">
+                  <AuthorBio author={news.author} category={news.category} />
+                </div>
                 {/* Related Topics */}
-                <RelatedTopics />
+                <RelatedTopics tags={news.tags} />
 
                 {/* Newsletter CTA */}
                 <NewsletterCTA />
@@ -291,9 +351,10 @@ export default function NewsDetailPage({ params }) {
               </div>
             </div>
 
-            {/* Sidebar */}
-            <div className="lg:col-span-1 order-3">
-              <div className="sticky top-24 space-y-6">
+            {/* Sidebar - Move to bottom on mobile */}
+            <div className="lg:col-span-1 order-3 mt-8 lg:mt-0">
+              <div className="lg:sticky lg:top-24 space-y-6">
+
                 {/* Author Card */}
                 <div className="bg-card rounded-xl p-6 shadow-sm border text-center">
                   <div className="w-20 h-20 mx-auto mb-4 bg-secondary rounded-full flex items-center justify-center">

@@ -41,21 +41,24 @@ export default function NewsletterCTA() {
         </p>
         
         <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-          <div className="flex gap-2">
+          <div className="flex flex-row gap-2">
+            <label htmlFor="newsletter-email" className="sr-only">Endereço de email</label>
             <input
+              id="newsletter-email"
               type="email"
               placeholder="seu@email.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="flex-1 px-6 py-4 rounded-xl bg-white/20 backdrop-blur-sm border border-white/30 placeholder-white/60 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+              className="flex-1 min-w-0 px-3 sm:px-6 py-3 sm:py-4 text-sm sm:text-base rounded-xl bg-white/20 backdrop-blur-sm border border-white/30 placeholder-white/60 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
             />
             <button
               type="submit"
               disabled={loading}
-              className="px-6 py-4 bg-white text-purple-600 rounded-xl font-bold hover:bg-gray-100 transition-all disabled:opacity-50 flex items-center gap-2"
+              className="px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base bg-white text-purple-600 rounded-xl font-bold hover:bg-gray-100 transition-all disabled:opacity-50 flex items-center gap-1 sm:gap-2 whitespace-nowrap flex-shrink-0"
+              aria-label="Assinar newsletter"
             >
-              {loading ? 'Enviando...' : <><Send className="w-5 h-5" /> Assinar</>}
+              {loading ? 'Enviando...' : <><Send className="w-4 h-4 sm:w-5 sm:h-5" /> <span className="hidden xs:inline sm:inline">Assinar</span><span className="xs:hidden sm:hidden">✓</span></>}
             </button>
           </div>
           <p className="text-xs text-white/70 text-center mt-3">

@@ -1,6 +1,9 @@
 export const metadata = {
   title: 'Política de Privacidade',
-  description: 'Política de privacidade e proteção de dados do NewsNow',
+  description: 'Política de privacidade e proteção de dados do BocaNoticias',
+  openGraph: {
+    locale: 'pt_BR',
+  },
 };
 
 export default function PrivacyPolicyPage() {
@@ -18,7 +21,7 @@ export default function PrivacyPolicyPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4">1. Introdução</h2>
             <p className="text-muted-foreground leading-relaxed">
-              O NewsNow está comprometido em proteger sua privacidade. Esta política descreve como coletamos, 
+              O BocaNoticias está comprometido em proteger sua privacidade. Esta política descreve como coletamos, 
               usamos e protegemos suas informações pessoais em conformidade com a Lei Geral de Proteção de Dados (LGPD).
             </p>
           </section>
@@ -134,8 +137,8 @@ export default function PrivacyPolicyPage() {
               Para exercer seus direitos ou esclarecer dúvidas sobre privacidade:
             </p>
             <div className="space-y-2">
-              <p><strong>E-mail:</strong> privacidade@newsnow.com</p>
-              <p><strong>Encarregado de Dados (DPO):</strong> dpo@newsnow.com</p>
+              <p><strong>E-mail:</strong> privacidade@Boca.com</p>
+              <p><strong>Encarregado de Dados (DPO):</strong> dpo@Boca.com</p>
               <p><strong>Endereço:</strong> Rua Exemplo, 123 - São Paulo, SP</p>
             </div>
           </section>

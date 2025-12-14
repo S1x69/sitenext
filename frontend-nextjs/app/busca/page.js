@@ -1,22 +1,60 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { Search as SearchIcon, TrendingUp } from 'lucide-react';
+import { Search as SearchIcon, TrendingUp, Loader2 } from 'lucide-react';
 import NewsCard from '@/components/NewsCard';
+import PageTracker from '@/components/PageTracker';
 import { mockNews, searchPrefixes } from '@/lib/mock';
+import { searchNewsFromBoca } from '@/lib/api';
+import { getContentAsText } from '@/lib/utils';
 
-export default function SearchPage() {
+function SearchContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const query = searchParams.get('q') || '';
   const [searchInput, setSearchInput] = useState(query);
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [displayCount, setDisplayCount] = useState(12);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
 
   useEffect(() => {
     setSearchInput(query);
+    if (query) {
+      performSearch(query);
+    }
   }, [query]);
+
+  const performSearch = async (searchQuery) => {
+    if (!searchQuery.trim()) {
+      setSearchResults([]);
+      setDisplayCount(12);
+      return;
+    }
+
+    setIsLoading(true);
+    setDisplayCount(12);
+    try {
+      const results = await searchNewsFromBoca(searchQuery);
+      setSearchResults(results);
+    } catch (error) {
+      console.error('Erro na busca:', error);
+      setSearchResults([]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const loadMore = () => {
+    setIsLoadingMore(true);
+    setTimeout(() => {
+      setDisplayCount(prev => prev + 12);
+      setIsLoadingMore(false);
+    }, 500);
+  };
 
   useEffect(() => {
     if (searchInput.length > 0) {
@@ -44,15 +82,39 @@ export default function SearchPage() {
     router.push(`/busca?q=${encodeURIComponent(label)}`);
   };
 
-  const filteredNews = mockNews.filter(news =>
-    news.title.toLowerCase().includes(query.toLowerCase()) ||
-    news.subtitle.toLowerCase().includes(query.toLowerCase()) ||
-    news.category.toLowerCase().includes(query.toLowerCase()) ||
-    news.content.toLowerCase().includes(query.toLowerCase())
-  );
+  const allFilteredNews = searchResults.length > 0 ? searchResults : mockNews.filter(news => {
+    const contentText = getContentAsText(news.content);
+    
+    return news.title.toLowerCase().includes(query.toLowerCase()) ||
+      news.subtitle.toLowerCase().includes(query.toLowerCase()) ||
+      news.category.toLowerCase().includes(query.toLowerCase()) ||
+      contentText.toLowerCase().includes(query.toLowerCase());
+  });
+
+  const filteredNews = allFilteredNews.slice(0, displayCount);
+  const hasMore = allFilteredNews.length > displayCount;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isLoading || isLoadingMore || !hasMore) return;
+
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight;
+      const clientHeight = window.innerHeight;
+
+      // Quando chegar a 80% da página, carrega mais
+      if (scrollTop + clientHeight >= scrollHeight * 0.8) {
+        loadMore();
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isLoading, isLoadingMore, hasMore, displayCount]);
 
   return (
     <div className="min-h-screen">
+      <PageTracker title={`Busca: ${query}`} />
       <div className="bg-gradient-to-r from-secondary to-secondary/50 border-b">
         <div className="container mx-auto px-4 py-12">
           <h1 className="text-3xl md:text-4xl font-bold text-center mb-8">
@@ -135,17 +197,39 @@ export default function SearchPage() {
               Resultados para: <span className="text-blue-600">"{query}"</span>
             </h2>
             <p className="text-muted-foreground">
-              {filteredNews.length} {filteredNews.length === 1 ? 'resultado encontrado' : 'resultados encontrados'}
+              {isLoading ? 'Buscando...' : `${allFilteredNews.length} ${allFilteredNews.length === 1 ? 'resultado encontrado' : 'resultados encontrados'}`}
             </p>
           </div>
         )}
 
-        {filteredNews.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredNews.map(news => (
-              <NewsCard key={news.id} news={news} />
-            ))}
+        {isLoading ? (
+          <div className="flex flex-col items-center justify-center py-20">
+            <Loader2 className="w-12 h-12 animate-spin text-blue-600 mb-4" />
+            <p className="text-lg text-muted-foreground">Buscando notícias...</p>
           </div>
+        ) : filteredNews.length > 0 ? (
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {filteredNews.map(news => (
+                <NewsCard key={news.id} news={news} />
+              ))}
+            </div>
+            
+            {isLoadingMore && (
+              <div className="flex flex-col items-center justify-center py-12">
+                <Loader2 className="w-8 h-8 animate-spin text-blue-600 mb-2" />
+                <p className="text-sm text-muted-foreground">Carregando mais notícias...</p>
+              </div>
+            )}
+
+            {!hasMore && allFilteredNews.length > 12 && (
+              <div className="text-center py-12">
+                <p className="text-muted-foreground">
+                  Você viu todas as {allFilteredNews.length} notícias 🎉
+                </p>
+              </div>
+            )}
+          </>
         ) : query && (
           <div className="flex flex-col items-center justify-center py-20 text-center">
             <SearchIcon className="w-16 h-16 mb-4 opacity-30" />
@@ -159,5 +243,20 @@ export default function SearchPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <SearchIcon className="w-12 h-12 mx-auto mb-4 animate-pulse opacity-50" />
+          <p className="text-muted-foreground">Carregando busca...</p>
+        </div>
+      </div>
+    }>
+      <SearchContent />
+    </Suspense>
   );
 }

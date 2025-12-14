@@ -326,5 +326,5 @@ Uma experiência de leitura **premium, moderna e engajadora** que mantém o usu�
 
 ---
 
-**Design by:** NewsNow Team
+**Design by:** BocaNoticias Team
 **Tech:** Next.js 14 + Tailwind CSS + Framer Motion (conceitos)

@@ -1,10 +1,12 @@
 'use client';
 
 import { Clock } from 'lucide-react';
+import { getContentAsText } from '@/lib/utils';
 
 export default function ReadingTimeEstimate({ content }) {
   const wordsPerMinute = 200;
-  const words = content.split(/\s+/).length;
+  const contentText = getContentAsText(content);
+  const words = contentText.split(/\s+/).length;
   const minutes = Math.ceil(words / wordsPerMinute);
 
   return (

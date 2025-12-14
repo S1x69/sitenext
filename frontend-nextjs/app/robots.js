@@ -8,7 +8,14 @@ export default function robots() {
         allow: '/',
         disallow: ['/api/', '/admin/'],
       },
+      {
+        userAgent: 'Googlebot-News',
+        allow: '/',
+      },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: [
+      `${baseUrl}/sitemap.xml`,
+      `${baseUrl}/news-sitemap.xml`,
+    ],
   };
 }

@@ -1,4 +1,4 @@
-# 📰 NewsNow - Next.js (Com SEO Otimizado)
+# 📰 BocaNoticias - Next.js (Com SEO Otimizado)
 
 Portal de notícias moderno construído com Next.js 14, otimizado para motores de busca (SEO).
 
@@ -95,7 +95,7 @@ yarn start
 ## 🔍 Recursos de SEO por Página
 
 ### Página Inicial (/)
-- Title: "Início - Últimas Notícias | NewsNow"
+- Title: "Início - Últimas Notícias | BocaNoticias"
 - Description otimizada
 - Schema: NewsMediaOrganization
 - Open Graph completo
@@ -169,7 +169,7 @@ Arquivo `.env.local`:
 ```env
 NEXT_PUBLIC_BACKEND_URL=http://localhost:8001
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
-NEXT_PUBLIC_SITE_NAME=NewsNow
+NEXT_PUBLIC_SITE_NAME=BocaNoticias
 ```
 
 ## 📈 Benefícios do Next.js para SEO

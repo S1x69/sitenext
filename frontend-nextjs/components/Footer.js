@@ -23,7 +23,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4">Sobre Nós</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              NewsNow é seu portal de notícias moderno, trazendo as últimas informações de tecnologia, esportes, cultura e mundo.
+              BocaNoticias é seu portal de notícias moderno, trazendo as últimas informações de tecnologia, esportes, cultura e mundo.
             </p>
           </div>
 
@@ -41,9 +41,9 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4">Categorias</h3>
             <ul className="space-y-2">
               <li><Link href="/categoria/tecnologia" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Tecnologia</Link></li>
-              <li><Link href="/categoria/esportes" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Esportes</Link></li>
-              <li><Link href="/categoria/mundo" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Mundo</Link></li>
-              <li><Link href="/categoria/entretenimento" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Entretenimento</Link></li>
+              <li><Link href="/categoria/cotacoes" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Cotações</Link></li>
+              <li><Link href="/categoria/clima" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Clima</Link></li>
+              <li><Link href="/categoria/politica" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Política</Link></li>
             </ul>
           </div>
 
@@ -53,7 +53,9 @@ export default function Footer() {
               Receba as principais notícias diretamente no seu email.
             </p>
             <form onSubmit={handleNewsletter} className="space-y-2">
+              <label htmlFor="footer-newsletter-email" className="sr-only">Email para newsletter</label>
               <input
+                id="footer-newsletter-email"
                 type="email"
                 placeholder="Seu email"
                 value={email}
@@ -64,6 +66,7 @@ export default function Footer() {
               <button
                 type="submit"
                 className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold flex items-center justify-center gap-2"
+                aria-label="Assinar newsletter"
               >
                 <Mail className="w-4 h-4" />
                 Assinar
@@ -75,24 +78,24 @@ export default function Footer() {
         <div className="border-t pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex gap-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg hover:bg-background transition-colors">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg hover:bg-background transition-colors" aria-label="Visite nosso Facebook">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg hover:bg-background transition-colors">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg hover:bg-background transition-colors" aria-label="Visite nosso Twitter">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg hover:bg-background transition-colors">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg hover:bg-background transition-colors" aria-label="Visite nosso Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg hover:bg-background transition-colors">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg hover:bg-background transition-colors" aria-label="Visite nosso LinkedIn">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg hover:bg-background transition-colors">
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg hover:bg-background transition-colors" aria-label="Visite nosso YouTube">
                 <Youtube className="w-5 h-5" />
               </a>
             </div>
             <p className="text-sm text-muted-foreground">
-              © 2025 NewsNow. Todos os direitos reservados.
+              © 2025 BocaNoticias. Todos os direitos reservados.
             </p>
           </div>
         </div>

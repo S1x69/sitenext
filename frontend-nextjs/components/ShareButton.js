@@ -24,13 +24,14 @@ export default function ShareButton({ title }) {
     }
   };
 
-  return (
+  return ( 
     <button
       onClick={handleShare}
-      className="inline-flex items-center gap-2 px-4 py-2 bg-secondary hover:bg-blue-600 hover:text-white border rounded-lg transition-all font-medium"
+      className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-secondary hover:bg-blue-600 hover:text-white border rounded-lg transition-all font-medium w-full sm:w-auto text-sm sm:text-base"
+      aria-label="Compartilhar notícia"
     >
-      <Share2 className="w-5 h-5" />
-      Compartilhar
+      <Share2 className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
+      <span>Compartilhar</span>
     </button>
   );
 }
